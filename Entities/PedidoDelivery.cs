@@ -8,7 +8,7 @@ public class PedidoDelivery : Pedido //herda de Pedido
 
     public PedidoDelivery(string numeroPedido, decimal taxaEntrega) : base(numeroPedido)
     {
-        TaxaEntrega = taxaEntrega;
+        TaxaEntrega = taxaEntrega; // tem atributo a mais no pedido
     }
 
     public override decimal CalcularTotal()
