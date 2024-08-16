@@ -5,8 +5,8 @@ namespace Restaurante
 {
     class Program
     {
-        static List<Restaurante> restaurantes = new List<Restaurante>(); // Cria uma lista de restaurantes
-        static List<Pedido> pedidos = new List<Pedido>(); // Cria uma lista de pedidos
+        static List<Restaurante> restaurantes = new List<Restaurante>(); // cria uma lista de restaurantes
+        static List<Pedido> pedidos = new List<Pedido>(); // cria uma lista de pedidos
 
         static void Main(string[] args)
         {
@@ -22,8 +22,8 @@ namespace Restaurante
                 Console.WriteLine("4. Criar Pedido Delivery");
                 Console.WriteLine("5. Criar Pedido Presencial");
                 Console.WriteLine("6. Exibir Total de um Pedido");
-                Console.WriteLine("7. Sair");
-                Console.WriteLine("8. Listar Pedidos");
+                Console.WriteLine("7. Listar Pedidos");
+                Console.WriteLine("8. Sair");
                 Console.Write("Escolha uma opção: ");
                 string opcao = Console.ReadLine();
 
@@ -48,10 +48,10 @@ namespace Restaurante
                         ExibirTotalPedido();
                         break;
                     case "7":
-                        continuar = false;
+                        ListarPedidos();
                         break;
                     case "8":
-                        ListarPedidos();
+                        continuar = false;
                         break;
                     default:
                         Console.WriteLine("Opção inválida! Pressione qualquer tecla para tentar novamente...");
@@ -259,7 +259,7 @@ namespace Restaurante
             }
 
             Console.Write("Escolha o prato: ");
-            int indice = Convert.ToInt32(Console.ReadLine()) - 1;
+            int indice = Convert.ToInt32(Console.ReadLine()) - 1; // subtrai 1 para obter o índice correto (resultado que o usuario escolheu)
 
             if (indice >= 0 && indice < restaurante.Cardapio.Count)
             {
