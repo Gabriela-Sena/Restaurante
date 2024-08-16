@@ -2,7 +2,7 @@ using System;
 
 namespace Restaurante;
 
-public class PedidoDelivery : Pedido
+public class PedidoDelivery : Pedido //herda de Pedido  
 {
     public decimal TaxaEntrega { get; set; }
 
