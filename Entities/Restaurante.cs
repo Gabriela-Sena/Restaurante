@@ -2,15 +2,19 @@ using System;
 
 namespace Restaurante;
 
-public class Restaurante : Estabelecimento
+public class Restaurante : IRestaurante //A classe Restaurante agora é obrigada a implementar todos os métodos definidos na interface IRestaurante
+//Isso torna a interface focada exclusivamente em operações de restaurantes
 {
+    public string Nome { get; set; }
+    public string Endereco { get; set; }
+    public string Telefone { get; set; }
+    public List<Prato> Cardapio { get; set; }
 
-    //Classe Restaurante possui uma composição de objetos Prato em sua propriedade Cardapio
-    //Cada restaurante contém uma lista de pratos
-    public List<Prato> Cardapio { get; private set; }
-
-    public Restaurante(string nome, string endereco, string telefone) : base(nome, endereco, telefone) // Chamando o construtor da classe base
+    public Restaurante(string nome, string endereco, string telefone)
     {
+        Nome = nome;
+        Endereco = endereco;
+        Telefone = telefone;
         Cardapio = new List<Prato>();
     }
 
@@ -24,6 +28,13 @@ public class Restaurante : Estabelecimento
         Cardapio.Remove(prato);
     }
 
-    //Classe Restaurante herda da classe Estabelecimento, aproveitando as propriedades Nome, Endereco, e Telefone
-    //Isso elimina a duplicação de código e permite a reutilização de funcionalidades
+    public List<Prato> ListarCardapio()
+    {
+        return Cardapio;
+    }
+
+    public decimal CalcularTotalCardapio()
+    {
+        return Cardapio.Sum(prato => prato.ObterPreco());
+    }
 }
